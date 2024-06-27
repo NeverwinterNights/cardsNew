@@ -9,6 +9,33 @@ html {
 *::before,
 *::after {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+a,
+input,
+button,
+select,
+textarea,
+optgroup,
+option {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  font-style: inherit;
+  color: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+
+  font-family: var(--font-family-primary), sans-serif;
+  line-height: var(--line-height-m);
+  color: var(--color-light-100);
+
+  background-color: var(--color-dark-900);
 }
 
 input,
@@ -24,17 +51,62 @@ option {
   color: inherit;
 }
 
-a:visited {
-  color: inherit;
+button {
+  background: none;
+  border: none;
+
+  &:hover {
+    border: none;
+  }
 }
 
-body {
+input {
+  background: none;
+  border: none;
+
+  &:active,
+  &:focus,
+  &:focus-visible {
+    outline: none;
+  }
+}
+
+p,
+button {
   margin: 0;
   padding: 0;
+}
 
-  font-family: var(--font-family-primary), sans-serif;
-  line-height: var(--line-height-m);
-  color: var(--color-light-100);
+// input:-webkit-autofill {
+//  background-clip: text;
+// }
 
-  background-color: var(--color-dark-900);
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  font-family: Roboto, sans-serif;
+
+  border: 0;
+  box-shadow: 0 0 0 1000px transparent inset;
+
+  transition: background-color 5000s ease-in-out 0s;
+
+  -webkit-text-fill-color: chartreuse;
+
+  // -webkit-text-fill-color: var(--light-900);
+  &:active {
+    color: var(--light-100) !important;
+  }
+
+  /* stylelint-disable no-descending-specificity */
+
+  &:focus-visible {
+    color: var(--light-100) !important;
+  }
 }

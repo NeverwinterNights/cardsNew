@@ -20,7 +20,8 @@
   border-radius: 2px;
 
   &:hover {
-    background: var(--color-dark-700);
+    //  background: var(--color-dark-700);
+    background: grey;
   }
 
   &:active {
@@ -62,7 +63,9 @@
   width: 100%;
   height: 100%;
   padding: 6px 0;
-  color: var(--color-light-100);
+
+  // color: var(--color-light-100);
+  color: green;
 
   // -webkit-text-fill-color: var(--color-light-100);
 }
@@ -163,3 +166,6 @@
 //  color: inherit;
 //  background-clip: text;
 // }
+.delete {
+  cursor: pointer;
+}

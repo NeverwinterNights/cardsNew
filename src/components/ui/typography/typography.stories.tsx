@@ -19,7 +19,7 @@ type Story = StoryObj<typeof meta>
 
 export const Large: Story = {
   args: {
-    children: 'Large Checkbox',
+    children: 'Large CheckboxItem',
     variant: 'large',
   },
 }
@@ -34,38 +34,38 @@ export const Body1: Story = {
 
 export const Body2: Story = {
   args: {
-    children: 'Body2 Checkbox',
+    children: 'Body2 CheckboxItem',
     variant: 'body2',
   },
 }
 export const Subtitle1: Story = {
   args: {
-    children: 'Subtitle1 Checkbox',
+    children: 'Subtitle1 CheckboxItem',
     variant: 'subtitle1',
   },
 }
 export const Subtitle2: Story = {
   args: {
-    children: 'Subtitle2 Checkbox',
+    children: 'Subtitle2 CheckboxItem',
     variant: 'subtitle2',
   },
 }
 
 export const Overline: Story = {
   args: {
-    children: 'Overline Checkbox',
+    children: 'Overline CheckboxItem',
     variant: 'overline',
   },
 }
 export const Link1: Story = {
   args: {
-    children: 'Link1 Checkbox',
+    children: 'Link1 CheckboxItem',
     variant: 'link1',
   },
 }
 export const Link2: Story = {
   args: {
-    children: 'Link2 Checkbox',
+    children: 'Link2 CheckboxItem',
     variant: 'link2',
   },
 }

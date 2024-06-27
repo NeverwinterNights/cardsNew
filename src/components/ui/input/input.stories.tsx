@@ -73,12 +73,7 @@ export const InputWithPlaceHolderAndSearch: Story = {
     const onChange = (event: ChangeEvent<HTMLInputElement>) => {
       setValue(event.currentTarget.value)
     }
-    const onClickClearInput = () => {
-      setValue('')
-    }
 
-    return (
-      <Input onChange={onChange} onClickClearInput={onClickClearInput} searchInput value={value} />
-    )
+    return <Input onChange={onChange} searchInput value={value} />
   },
 }

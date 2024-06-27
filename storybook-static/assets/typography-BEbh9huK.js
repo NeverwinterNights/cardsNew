@@ -1,0 +1,13 @@
+import{j as o}from"./jsx-runtime-QvZ8i92b.js";const s="_inherit_1huy4_1",u="_h1_1huy4_5",_="_h2_1huy4_14",y="_h3_1huy4_23",c="_large_1huy4_32",h="_body1_1huy4_41",m="_body2_1huy4_50",p="_subtitle1_1huy4_59",d="_subtitle2_1huy4_68",v="_caption_1huy4_77",b="_overline_1huy4_86",k="_link1_1huy4_95",g="_link2_1huy4_106",T="_primary_1huy4_117",f="_secondary_1huy4_121",q="_error_1huy4_125",e={inherit:s,h1:u,h2:_,h3:y,large:c,body1:h,body2:m,subtitle1:p,subtitle2:d,caption:v,overline:b,link1:k,link2:g,primary:T,secondary:f,error:q},x=n=>{const{as:a="p",className:r,color:l="inherit",variant:t="body1",...i}=n;return o.jsx(a,{className:`${e[t]} ${e[l]} ${r??""}`,...i})};x.__docgenInfo={description:"",methods:[],displayName:"Typography",props:{as:{required:!1,tsType:{name:"T"},description:""},className:{required:!1,tsType:{name:"string"},description:""},color:{required:!1,tsType:{name:"union",raw:"'error' | 'inherit' | 'primary' | 'secondary'",elements:[{name:"literal",value:"'error'"},{name:"literal",value:"'inherit'"},{name:"literal",value:"'primary'"},{name:"literal",value:"'secondary'"}]},description:""},variant:{required:!1,tsType:{name:"union",raw:`| 'body1'
+| 'body2'
+| 'caption'
+| 'error'
+| 'h1'
+| 'h2'
+| 'h3'
+| 'large'
+| 'link1'
+| 'link2'
+| 'overline'
+| 'subtitle1'
+| 'subtitle2'`,elements:[{name:"literal",value:"'body1'"},{name:"literal",value:"'body2'"},{name:"literal",value:"'caption'"},{name:"literal",value:"'error'"},{name:"literal",value:"'h1'"},{name:"literal",value:"'h2'"},{name:"literal",value:"'h3'"},{name:"literal",value:"'large'"},{name:"literal",value:"'link1'"},{name:"literal",value:"'link2'"},{name:"literal",value:"'overline'"},{name:"literal",value:"'subtitle1'"},{name:"literal",value:"'subtitle2'"}]},description:""}}};export{x as T};

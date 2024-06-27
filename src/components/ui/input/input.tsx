@@ -1,23 +1,23 @@
-import { ComponentPropsWithoutRef, forwardRef, useState } from 'react'
+import {
+  ChangeEvent,
+  ComponentPropsWithoutRef,
+  MouseEvent,
+  forwardRef,
+  useCallback,
+  useState,
+} from 'react'
 
-import { ClosedInputIcon, Eye, EyeClosed, SearchIcon } from '@/assets/icons'
+import { Eye, EyeClosed, SearchIcon } from '@/assets/icons'
+import { Typography } from '@/components/ui/typography'
 import { clsx } from 'clsx'
 
-import styles from './input.module.scss'
-
-import { Typography } from '../typography'
-
-// import { ClosedInputIcon } from '../../../assets/icons/ClosedInputIcon.tsx'
+import s from './input.module.scss'
 
 export type InputPropsType = {
-  disabled?: boolean
   error?: string
   inputTextClassName?: string
   label?: string
-  onClickClearInput?: () => void
   searchInput?: boolean
-  type?: string
-  // onValueChange?: (value: string) => void
   width?: string
 } & ComponentPropsWithoutRef<'input'>
 
@@ -30,11 +30,10 @@ export const Input = forwardRef<HTMLInputElement, InputPropsType>(
       inputTextClassName,
       label,
       onChange,
-      onClickClearInput,
       placeholder,
       searchInput,
       type,
-      value = '',
+      value,
       width,
       ...restProps
     },
@@ -43,25 +42,28 @@ export const Input = forwardRef<HTMLInputElement, InputPropsType>(
     const [iconVisible, setIconVisible] = useState(type)
 
     const classNames = {
-      inpText: clsx(styles.input, inputTextClassName),
-      input: clsx(styles.inputContainer, !!error && styles.error, className),
-      label: clsx(styles.inputContainer, !!error && styles.error, className),
-    }
-    const iconClickHandler = (e: any) => {
-      e.preventDefault()
-      setIconVisible(() => (iconVisible === 'password' ? 'text' : 'password'))
+      inpText: clsx(s.input, inputTextClassName),
+      input: clsx(s.inputContainer, !!error && s.error, className),
+      label: clsx(s.inputContainer, !!error && s.error, className),
     }
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const iconClickHandler = useCallback(
+      (e: MouseEvent<HTMLButtonElement>) => {
+        e.preventDefault()
+        setIconVisible(() => (iconVisible === 'password' ? 'text' : 'password'))
+      },
+      [iconVisible]
+    )
+
+    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
       onChange?.(e)
-      // onValueChange?.(e.target.value)
     }
 
     return (
-      <div className={clsx(styles.main, disabled && styles.disabled)} style={{ width }}>
+      <div className={clsx(s.main, disabled && s.disabled)} style={{ width }}>
         {label && (
           <div>
-            <Typography className={styles.label} variant={'body2'}>
+            <Typography className={s.label} color={'secondary'}>
               {label}
             </Typography>
           </div>
@@ -69,7 +71,7 @@ export const Input = forwardRef<HTMLInputElement, InputPropsType>(
         <div className={classNames.input}>
           {searchInput && (
             <span
-              className={styles.icon}
+              className={s.icon}
               style={{ alignItems: 'center', display: 'flex', justifyContent: 'center' }}
             >
               <SearchIcon />
@@ -81,42 +83,34 @@ export const Input = forwardRef<HTMLInputElement, InputPropsType>(
             onChange={handleChange}
             placeholder={placeholder}
             ref={ref}
-            style={error ? { color: 'var( --color-danger-300 )' } : {}}
             type={iconVisible}
-            value={value}
+            // value={value}
             {...restProps}
           />
-          {searchInput && value.toString()?.length > 0 && (
-            <span className={styles.closedImp} onClick={onClickClearInput}>
-              <ClosedInputIcon />
-            </span>
-          )}
-
           {(type === 'password' || iconVisible === 'password') && (
             <button
-              className={styles.fakebutton}
+              className={s.fakebutton}
               disabled={disabled}
               onClick={iconClickHandler}
               type={'button'}
             >
               {iconVisible === 'password' ? (
-                <Eye color={disabled ? 'var(--color-dark-100)' : ''} />
+                <Eye color={disabled ? 'var(--dark-100)' : ''} />
               ) : (
-                <EyeClosed color={disabled ? 'var(--color-dark-100)' : ''} />
+                <EyeClosed color={disabled ? 'var(--dark-100)' : ''} />
               )}
             </button>
           )}
         </div>
-
-        {error && (
-          <div className={styles.errorContainer}>
+        <div className={s.errorContainer}>
+          {error && (
             <div style={{ margin: '4px 0' }}>
-              <Typography style={{ color: 'var( --color-danger-300 )' }} variant={'caption'}>
+              <Typography color={'error'} variant={'error'}>
                 {error}
               </Typography>
             </div>
-          </div>
-        )}
+          )}
+        </div>
       </div>
     )
   }
