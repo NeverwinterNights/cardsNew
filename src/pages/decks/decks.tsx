@@ -16,7 +16,6 @@ export const Decks = () => {
   if (error) {
     return <div>Error...</div>
   }
-  console.log('value')
 
   return (
     <div className={s.root}>
